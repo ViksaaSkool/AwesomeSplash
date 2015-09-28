@@ -1,5 +1,6 @@
 package com.viksaa.sssplash.lib.activity;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -96,7 +97,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mPathLogo.setStrokeDrawingDuration(mConfigSplash.getAnimLogoSplashDuration());
 
         mPathLogo.setOriginalDimensions(mConfigSplash.getOriginalWidth(), mConfigSplash.getOriginalHeight());
-        mPathLogo.setStrokeColor(mConfigSplash.getStrokeColor());
+        mPathLogo.setStrokeColor(getResources().getColor(mConfigSplash.getStrokeColor()));
         mPathLogo.setStrokeWidth(mConfigSplash.getStrokeSize());
         mPathLogo.setClippingTransform(mConfigSplash.getClippingTransform());
 
@@ -116,12 +117,12 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         // get the final radius for the clipping circle
         int finalRadius = Math.max(mRlReveal.getWidth(), mRlReveal.getHeight()) + mRlReveal.getHeight() / 2;
         //bottom or top
-        int y = UIUtil.getRevealDirection(mRlReveal, mConfigSplash.getRevealY());
+        int y = UIUtil.getRevealDirection(mRlReveal, mConfigSplash.getRevealFlagY());
         //left or right
-        int x = UIUtil.getRevealDirection(mRlReveal, mConfigSplash.getRevealX());
+        int x = UIUtil.getRevealDirection(mRlReveal, mConfigSplash.getRevealFlagX());
 
-        mRlReveal.setBackgroundColor(mConfigSplash.getBackgroundColor());
-        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRlReveal, x, y, 0, finalRadius);
+        mRlReveal.setBackgroundColor(getResources().getColor(mConfigSplash.getBackgroundColor()));
+        SupportAnimator animator = ViewAnimationUtils.createCircularReveal(mRlReveal, y, x, 0, finalRadius);
         animator.setInterpolator(new AccelerateDecelerateInterpolator());
         animator.setDuration(mConfigSplash.getAnimCircularRevealDuration());
         animator.addListener(new SupportAnimator.AnimatorListener() {
@@ -160,12 +161,12 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         YoYo.with(mConfigSplash.getAnimLogoTechn()).withListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-                startTextAnimation();
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-
+                startTextAnimation();
             }
 
             @Override
@@ -185,7 +186,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
 
         mTxtTitle.setText(mConfigSplash.getTextSplash());
         mTxtTitle.setTextSize(mConfigSplash.getTextSize());
-        mTxtTitle.setTextColor(mConfigSplash.getTextColor());
+        mTxtTitle.setTextColor(getResources().getColor(mConfigSplash.getTextColor()));
 
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
@@ -197,12 +198,11 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         YoYo.with(mConfigSplash.getAnimTextTechn()).withListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
-                animationsFinished();
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-
+                animationsFinished();
             }
 
             @Override
@@ -215,6 +215,12 @@ abstract public class AwesomeSplash extends AppCompatActivity {
 
             }
         }).duration(mConfigSplash.getAnimTextDuration()).playOn(mTxtTitle);
+    }
+
+
+    public void setFont(String font) {
+        Typeface type = Typeface.createFromAsset(getAssets(), font);
+        mTxtTitle.setTypeface(type);
     }
 
     public abstract void initSplash(ConfigSplash configSplash);

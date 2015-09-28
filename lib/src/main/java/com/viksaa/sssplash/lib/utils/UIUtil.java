@@ -1,6 +1,9 @@
 package com.viksaa.sssplash.lib.utils;
 
+import android.app.Activity;
+import android.graphics.Typeface;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.viksaa.sssplash.lib.cnst.Flags;
 
@@ -27,5 +30,11 @@ public class UIUtil {
         }
 
         return result;
+    }
+
+
+    public static void setFont(Activity a, TextView txtView, String font) {
+        Typeface type = Typeface.createFromAsset(a.getAssets(), font);
+        txtView.setTypeface(type);
     }
 }

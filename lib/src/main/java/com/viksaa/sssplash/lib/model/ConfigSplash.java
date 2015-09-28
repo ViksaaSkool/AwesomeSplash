@@ -1,5 +1,7 @@
 package com.viksaa.sssplash.lib.model;
 
+import android.content.Context;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.github.jorgecastillo.clippingtransforms.ClippingTransform;
 import com.github.jorgecastillo.clippingtransforms.PlainClippingTransform;
@@ -14,8 +16,8 @@ public class ConfigSplash {
 
     //Circular Reveal
     private int animCircularRevealDuration;
-    private int revealX;
-    private int revealY;
+    private int revealFlagX;
+    private int revealFlagY;
     private int backgroundColor;
 
     //Img Logo
@@ -178,20 +180,20 @@ public class ConfigSplash {
     }
 
 
-    public int getRevealX() {
-        return revealX;
+    public int getRevealFlagX() {
+        return revealFlagX;
     }
 
-    public void setRevealX(int revealX) {
-        this.revealX = revealX;
+    public void setRevealFlagX(int revealFlagX) {
+        this.revealFlagX = revealFlagX;
     }
 
-    public int getRevealY() {
-        return revealY;
+    public int getRevealFlagY() {
+        return revealFlagY;
     }
 
-    public void setRevealY(int revealY) {
-        this.revealY = revealY;
+    public void setRevealFlagY(int revealFlagY) {
+        this.revealFlagY = revealFlagY;
     }
 
 
@@ -200,10 +202,16 @@ public class ConfigSplash {
     }
 
 
+    public ConfigSplash (Context c){
+
+    }
+
+
+
     public void initDefaults(){
         this.animCircularRevealDuration = Defaults.ANIM_REVEAL;
-        this.revealX = Flags.R_BOTTOM;
-        this.revealY = Flags.R_RIGHT;
+        this.revealFlagX = Flags.R_BOTTOM;
+        this.revealFlagY = Flags.R_RIGHT;
         this.backgroundColor = android.R.color.holo_purple;
 
         //Img Logo
