@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<io.codetail.widget.RevealFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rfParent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/rlColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flCentral"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:text="test test"
+            android:maxLines="1"
+            android:textSize="40sp"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/flCentral"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <ImageView
+                android:id="@+id/imgLogo"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp" />
+
+            <com.github.jorgecastillo.FillableLoader
+                android:id="@+id/flLogo"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="50dp"
+                app:fl_clippingTransform="waves"
+                app:fl_fillDuration="2000"
+                app:fl_originalHeight="300"
+                app:fl_originalWidth="300"
+                app:fl_strokeWidth="2dp" />
+        </FrameLayout>
+
+
+    </RelativeLayout>
+
+</io.codetail.widget.RevealFrameLayout>
