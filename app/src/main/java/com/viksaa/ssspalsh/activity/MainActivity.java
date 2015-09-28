@@ -1,28 +1,37 @@
 package com.viksaa.ssspalsh.activity;
 
-import android.util.Log;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import com.viksaa.ssspalsh.util.Constants;
-import com.viksaa.sssplash.lib.activity.AwesomeSplash;
+import com.viksaa.ssspalsh.R;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
-public class MainActivity extends AwesomeSplash {
+public class MainActivity extends AppCompatActivity {
 
 
+    private ConfigSplash configSplash;
 
     @Override
-    public void initSplash(ConfigSplash configSplash){
-        configSplash.setLogoSplashPath(Constants.LOGO_PATH);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        Bundle b = new Bundle();
+        ConfigSplash cs = new ConfigSplash();
+        b.putSerializable("", cs);
     }
 
 
+    public void navigationAndToolbarSetuUp() {
+        /*setSupportActionBar(mTlBar);
+        //mActionBar = getSupportActionBar();
+        getSupportActionBar().setIcon(R.drawable.ic_al_white);
+        getSupportActionBar().setTitle(Static.EMPTY);*/
 
-    @Override
-    public void animationsFinished() {
-        Log.d("", "");
-        Toast.makeText(this, "Finished", Toast.LENGTH_SHORT).show();
     }
 
 
+    public void init(){
+        configSplash = new ConfigSplash();
+    }
 }

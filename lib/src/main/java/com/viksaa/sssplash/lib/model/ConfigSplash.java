@@ -6,10 +6,12 @@ import com.github.jorgecastillo.clippingtransforms.PlainClippingTransform;
 import com.viksaa.sssplash.lib.cnst.Defaults;
 import com.viksaa.sssplash.lib.cnst.Flags;
 
+import java.io.Serializable;
+
 /**
  * Created by varsovski on 25-Sep-15.
  */
-public class ConfigSplash {
+public class ConfigSplash implements Serializable{
 
 
     //Circular Reveal
@@ -252,7 +254,7 @@ public class ConfigSplash {
         this.logoSplashPath = Defaults.EMPTY;
         this.strokeSize = Defaults.STROKE_WIDTH;
         this.strokeColor = android.R.color.white;
-        this.fillColor = android.R.color.holo_green_light;
+        this.fillColor = android.R.color.holo_green_dark;
         this.clippingTransform = new PlainClippingTransform();
         this.originalHeight = Defaults.ORIGINAL_HEIGHT;
         this.originalWidth = Defaults.ORIGINAL_WIDTH;

@@ -25,4 +25,10 @@ public class SplashActivity extends AwesomeSplash {
     public void animationsFinished() {
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

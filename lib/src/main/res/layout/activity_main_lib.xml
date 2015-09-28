@@ -16,7 +16,6 @@
             android:layout_below="@+id/flCentral"
             android:layout_centerHorizontal="true"
             android:gravity="center"
-            android:text="test test"
             android:maxLines="1"
             android:textSize="40sp"
             android:visibility="gone" />
