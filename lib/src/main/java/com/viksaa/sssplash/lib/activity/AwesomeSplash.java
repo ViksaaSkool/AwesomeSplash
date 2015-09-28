@@ -1,5 +1,6 @@
 package com.viksaa.sssplash.lib.activity;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +13,9 @@ import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.YoYo;
 import com.github.jorgecastillo.FillableLoader;
+import com.github.jorgecastillo.FillableLoaderBuilder;
 import com.github.jorgecastillo.State;
+import com.github.jorgecastillo.clippingtransforms.PlainClippingTransform;
 import com.github.jorgecastillo.listener.OnStateChangeListener;
 import com.nineoldandroids.animation.Animator;
 import com.viksaa.sssplash.lib.R;
@@ -33,6 +36,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
     private ImageView mImgLogo;
     private TextView mTxtTitle;
     private FillableLoader mPathLogo;
+    private FrameLayout mFl;
 
 
     private ConfigSplash mConfigSplash;
@@ -60,10 +64,10 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mRlReveal = (RelativeLayout) findViewById(R.id.rlColor);
         mTxtTitle = (TextView) findViewById(R.id.txtTitle);
 
+
         switch (flag) {
             case Flags.WITH_PATH:
-                mPathLogo = (FillableLoader) findViewById(R.id.flLogo);
-                mPathLogo.setVisibility(View.VISIBLE);
+                mFl = (FrameLayout) findViewById(R.id.flCentral);
                 initPathAnimation();
                 break;
             case Flags.WITH_LOGO:
@@ -90,17 +94,21 @@ abstract public class AwesomeSplash extends AppCompatActivity {
     public void initPathAnimation() {
         int viewSize = getResources().getDimensionPixelSize(R.dimen.fourthSampleViewSize);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(viewSize, viewSize);
-        //params.addRule(RelativeLayout.CENTER_IN_PARENT);
 
-        mPathLogo.setSvgPath(mConfigSplash.getLogoSplashPath());
-        mPathLogo.setLayoutParams(params);
-        mPathLogo.setStrokeDrawingDuration(mConfigSplash.getAnimLogoSplashDuration());
-
-        mPathLogo.setOriginalDimensions(mConfigSplash.getOriginalWidth(), mConfigSplash.getOriginalHeight());
-        mPathLogo.setStrokeColor(getResources().getColor(mConfigSplash.getStrokeColor()));
-        mPathLogo.setStrokeWidth(mConfigSplash.getStrokeSize());
-        mPathLogo.setClippingTransform(mConfigSplash.getClippingTransform());
-
+        params.setMargins(0, 0, 0, 50);
+        FillableLoaderBuilder loaderBuilder = new FillableLoaderBuilder();
+        mPathLogo = loaderBuilder
+                .parentView(mFl)
+                .layoutParams(params)
+                .svgPath(mConfigSplash.getLogoSplashPath())
+                .originalDimensions(mConfigSplash.getOriginalWidth(), mConfigSplash.getOriginalHeight())
+                .strokeWidth(mConfigSplash.getStrokeSize())
+                .strokeColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getStrokeColor())))))
+                .fillColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getFillColor())))))
+                .strokeDrawingDuration(mConfigSplash.getAnimPathStrokeDrawing())
+                .fillDuration(mConfigSplash.getAnimPathFilling())
+                .clippingTransform(new PlainClippingTransform())
+                .build();
         mPathLogo.setOnStateChangeListener(new OnStateChangeListener() {
             @Override
             public void onStateChange(int i) {
@@ -109,6 +117,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
                 }
             }
         });
+
     }
 
 
@@ -142,8 +151,10 @@ abstract public class AwesomeSplash extends AppCompatActivity {
             public void onAnimationEnd() {
 
                 if (pathOrLogo == Flags.WITH_PATH) {
-                    mPathLogo.setVisibility(View.VISIBLE);
+                    //mPathLogo.setVisibility(View.VISIBLE);
                     mPathLogo.start();
+
+
                 } else {
                     startLogoAnimation();
                 }
@@ -187,7 +198,8 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mTxtTitle.setText(mConfigSplash.getTextSplash());
         mTxtTitle.setTextSize(mConfigSplash.getTextSize());
         mTxtTitle.setTextColor(getResources().getColor(mConfigSplash.getTextColor()));
-
+        if (!mConfigSplash.getFont().isEmpty())
+            setFont(mConfigSplash.getFont());
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.BELOW, R.id.flCentral);

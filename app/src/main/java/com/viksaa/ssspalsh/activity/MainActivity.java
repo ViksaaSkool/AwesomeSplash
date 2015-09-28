@@ -3,7 +3,7 @@ package com.viksaa.ssspalsh.activity;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.viksaa.ssspalsh.R;
+import com.viksaa.ssspalsh.util.Constants;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
@@ -13,7 +13,7 @@ public class MainActivity extends AwesomeSplash {
 
     @Override
     public void initSplash(ConfigSplash configSplash){
-        configSplash.setLogoSplash(R.mipmap.ic_launcher);
+        configSplash.setLogoSplashPath(Constants.LOGO_PATH);
     }
 
 

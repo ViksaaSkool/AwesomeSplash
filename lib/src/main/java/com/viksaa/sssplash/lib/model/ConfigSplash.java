@@ -1,7 +1,5 @@
 package com.viksaa.sssplash.lib.model;
 
-import android.content.Context;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.github.jorgecastillo.clippingtransforms.ClippingTransform;
 import com.github.jorgecastillo.clippingtransforms.PlainClippingTransform;
@@ -29,16 +27,32 @@ public class ConfigSplash {
     private String logoSplashPath;
     private int strokeSize;
     private int strokeColor;
+    private int fillColor;
     private ClippingTransform clippingTransform;
     private int originalHeight;
     private int originalWidth;
 
+
+
+    private int animPathStrokeDrawing;
+    private int animPathFilling;
+
     //Text
     private String textSplash;
+    private String font;
     private int animTextDuration;
     private Techniques animTextTechn;
     private float textSize;
     private int textColor;
+
+
+    public int getFillColor() {
+        return fillColor;
+    }
+
+    public void setFillColor(int fillColor) {
+        this.fillColor = fillColor;
+    }
 
     public int getStrokeSize() {
         return strokeSize;
@@ -97,8 +111,6 @@ public class ConfigSplash {
     }
 
 
-
-
     //Getters and Setters
 
     public int getBackgroundColor() {
@@ -110,7 +122,6 @@ public class ConfigSplash {
     }
 
 
-
     public Techniques getAnimLogoTechn() {
         return animLogoTechn;
     }
@@ -120,7 +131,6 @@ public class ConfigSplash {
     }
 
 
-
     public int getAnimCircularRevealDuration() {
         return animCircularRevealDuration;
     }
@@ -128,7 +138,6 @@ public class ConfigSplash {
     public void setAnimCircularRevealDuration(int animCircularRevealDuration) {
         this.animCircularRevealDuration = animCircularRevealDuration;
     }
-
 
 
     public int getLogoSplash() {
@@ -196,43 +205,67 @@ public class ConfigSplash {
         this.revealFlagY = revealFlagY;
     }
 
+    public int getAnimPathStrokeDrawing() {
+        return animPathStrokeDrawing;
+    }
 
-    public ConfigSplash(){
+    public void setAnimPathStrokeDrawing(int animPathStrokeDrawing) {
+        this.animPathStrokeDrawing = animPathStrokeDrawing;
+    }
+
+    public int getAnimPathFilling() {
+        return animPathFilling;
+    }
+
+    public void setAnimPathFilling(int animPathFilling) {
+        this.animPathFilling = animPathFilling;
+    }
+
+    public String getFont() {
+        return font;
+    }
+
+    public void setFont(String font) {
+        this.font = font;
+    }
+
+    public ConfigSplash() {
         initDefaults();
     }
 
 
-    public ConfigSplash (Context c){
-
-    }
 
 
 
-    public void initDefaults(){
+    public void initDefaults() {
         this.animCircularRevealDuration = Defaults.ANIM_REVEAL;
         this.revealFlagX = Flags.R_BOTTOM;
         this.revealFlagY = Flags.R_RIGHT;
-        this.backgroundColor = android.R.color.holo_purple;
+        this.backgroundColor = android.R.color.holo_orange_light;
 
         //Img Logo
         this.logoSplash = android.R.mipmap.sym_def_app_icon;
-        this.animLogoTechn = Techniques.Bounce;
+        this.animLogoTechn = Techniques.FadeInDown;
         this.animLogoSplashDuration = Defaults.ANIM_LOGO;
 
         //Path Logo
         this.logoSplashPath = Defaults.EMPTY;
         this.strokeSize = Defaults.STROKE_WIDTH;
-        this.strokeColor = android.R.color.holo_red_dark;
+        this.strokeColor = android.R.color.white;
+        this.fillColor = android.R.color.holo_green_light;
         this.clippingTransform = new PlainClippingTransform();
         this.originalHeight = Defaults.ORIGINAL_HEIGHT;
         this.originalWidth = Defaults.ORIGINAL_WIDTH;
+        this.animPathStrokeDrawing = Defaults.ANIM_DRAWING;
+        this.animPathFilling = Defaults.ANIM_FILLING;
 
         //Text
         this.textSplash = Defaults.APP_TITLE;
         this.animTextDuration = Defaults.ANIM_TEXT;
-        this.animTextTechn = Techniques.FadeInDown;
+        this.animTextTechn = Techniques.SlideInUp;
         this.textSize = Defaults.TEXT_SIZE;
         this.textColor = android.R.color.white;
+        this.font = Defaults.EMPTY;
     }
 
 }

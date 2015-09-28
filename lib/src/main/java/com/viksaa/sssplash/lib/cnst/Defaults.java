@@ -7,6 +7,8 @@ public class Defaults {
 
     public static final int ANIM_REVEAL = 2000;
     public static final int ANIM_LOGO = 2000;
+    public static final int ANIM_DRAWING = 2000;
+    public static final int ANIM_FILLING = 2000;
     public static final int ANIM_TEXT = 1500;
 
     public static final String EMPTY = "";
@@ -16,5 +18,5 @@ public class Defaults {
     public static final int ORIGINAL_WIDTH = 300;
     public static final int STROKE_WIDTH = 2;
 
-    public static final String APP_TITLE = "Application Title";
+    public static final String APP_TITLE = "Awesome Splash Screen";
 }
