@@ -12,11 +12,17 @@
     <string name="path_title">Path Adjustments</string>
     <string name="app_title">App Title Adjustments</string>
 
-    <string name="circ_duration">Set Duration</string>
-    <string name="circ_color">Choose Background Color</string>
+    <string name="circ_duration">Set Duration | Currently: %1$sms</string>
+    <string name="circ_color">Background Color</string>
     <string name="circ_point">Set Starting Point</string>
+    <string name="circ_b">Bottom</string>
+    <string name="circ_t">Top</string>
+    <string name="circ_l">Left</string>
+    <string name="circ_r">Right</string>
+
 
     <string-array name="colors">
+        <item>@color/primary</item>
         <item>@color/Brown</item>
         <item>@color/Cyan</item>
         <item>@color/Beige</item>

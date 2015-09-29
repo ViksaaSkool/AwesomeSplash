@@ -21,6 +21,8 @@ public class Constants {
         public static final int FOR_LOGO = 0;
         public static final int FOR_TEXT = 1;
 
+        public static final String CONFIG = "config";
+
         //path
         public static final String DROID_LOGO = "M 149.22,22.00\n" +
                 "           C 148.23,20.07 146.01,16.51 146.73,14.32\n" +

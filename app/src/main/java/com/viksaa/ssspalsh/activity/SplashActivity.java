@@ -24,7 +24,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setLogoSplashPath(Constants.DROID_LOGO);
         configSplash.setFillColor(R.color.accent);
 
-        configSplash.setFont("fonts/streatwear.otf");
+        configSplash.setFont(Constants.SLIMJIM_FONT);
         configSplash.setTextSize(20f);
 
     }
