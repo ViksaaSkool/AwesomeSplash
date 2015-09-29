@@ -1,6 +1,8 @@
 package com.viksaa.ssspalsh.util;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.widget.TextView;
 
@@ -25,4 +27,10 @@ public class UIUtil {
         int start = o.getClass().getName().lastIndexOf(".") + 1;
         return o.getClass().getName().substring(start);
     }
+
+    public static int getToolbarHeight(Context c){
+        final TypedArray styledAttributes = c.getTheme().obtainStyledAttributes(new int[] { android.R.attr.actionBarSize });
+        return (int) styledAttributes.getDimension(0, 0);
+    }
+
 }

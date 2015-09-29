@@ -20,7 +20,13 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/settings_view" />
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="com.viksaa.ssspalsh.util.FixedScrollingViewBehavior">
+
+    <include layout="@layout/adjustments_view" />
+    </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fabReady"
@@ -32,5 +38,6 @@
         app:backgroundTint="@color/accent"
         app:elevation="6dp"
         app:pressedTranslationZ="12dp"
-        app:rippleColor="@android:color/white" />
+        app:rippleColor="@android:color/white"
+        app:layout_behavior="com.viksaa.ssspalsh.util.ScrollingFABBehavior"/>
 </android.support.design.widget.CoordinatorLayout>

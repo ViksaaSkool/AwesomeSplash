@@ -106,9 +106,15 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         int progressChanged = progress / 10;
         int duration = 1000;
+        int bonus = 0;
+
         if (progressChanged == 0)
-            progressChanged = 1;
+            bonus = 1000;
+        if (progressChanged == 1)
+            bonus = 500;
+
         duration *= progressChanged;
+        duration += bonus;
         String text = "";
         switch (seekBar.getId()) {
             case R.id.sbCircDuration:
