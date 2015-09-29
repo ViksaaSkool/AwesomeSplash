@@ -5,7 +5,23 @@ package com.viksaa.ssspalsh.util;
  */
 public class Constants {
 
+        public static final int SPLASH_DELAY = 5000;
 
+        //fonts
+        public static final String STREATWEAR_FONT = "fonts/streatwear.otf";
+        public static final String DITI_SWEET_FONT = "fonts/diti_sweet.ttf";
+        public static final String GERMANIA_ONE_FONT = "fonts/germania_one.ttf";
+        public static final String SLIMJIM_FONT = "fonts/slimjim.ttf";
+        public static final String VOLATIRE_FONT = "fonts/volatire.ttf";
+
+        public static final String [] FONTS = {STREATWEAR_FONT, DITI_SWEET_FONT, GERMANIA_ONE_FONT, SLIMJIM_FONT, VOLATIRE_FONT};
+
+        //flags
+        public static final String FOR_WHAT = "forWhat";
+        public static final int FOR_LOGO = 0;
+        public static final int FOR_TEXT = 1;
+
+        //path
         public static final String DROID_LOGO = "M 149.22,22.00\n" +
                 "           C 148.23,20.07 146.01,16.51 146.73,14.32\n" +
                 "             148.08,10.21 152.36,14.11 153.65,16.06\n" +

@@ -1,8 +1,6 @@
 package com.viksaa.sssplash.lib.model;
 
 import com.daimajia.androidanimations.library.Techniques;
-import com.github.jorgecastillo.clippingtransforms.ClippingTransform;
-import com.github.jorgecastillo.clippingtransforms.PlainClippingTransform;
 import com.viksaa.sssplash.lib.cnst.Defaults;
 import com.viksaa.sssplash.lib.cnst.Flags;
 
@@ -30,12 +28,8 @@ public class ConfigSplash implements Serializable{
     private int strokeSize;
     private int strokeColor;
     private int fillColor;
-    private ClippingTransform clippingTransform;
     private int originalHeight;
     private int originalWidth;
-
-
-
     private int animPathStrokeDrawing;
     private int animPathFilling;
 
@@ -70,14 +64,6 @@ public class ConfigSplash implements Serializable{
 
     public void setStrokeColor(int strokeColor) {
         this.strokeColor = strokeColor;
-    }
-
-    public ClippingTransform getClippingTransform() {
-        return clippingTransform;
-    }
-
-    public void setClippingTransform(ClippingTransform clippingTransform) {
-        this.clippingTransform = clippingTransform;
     }
 
     public int getOriginalHeight() {
@@ -255,7 +241,6 @@ public class ConfigSplash implements Serializable{
         this.strokeSize = Defaults.STROKE_WIDTH;
         this.strokeColor = android.R.color.white;
         this.fillColor = android.R.color.holo_green_dark;
-        this.clippingTransform = new PlainClippingTransform();
         this.originalHeight = Defaults.ORIGINAL_HEIGHT;
         this.originalWidth = Defaults.ORIGINAL_WIDTH;
         this.animPathStrokeDrawing = Defaults.ANIM_DRAWING;

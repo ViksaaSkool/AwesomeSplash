@@ -151,10 +151,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
             public void onAnimationEnd() {
 
                 if (pathOrLogo == Flags.WITH_PATH) {
-                    //mPathLogo.setVisibility(View.VISIBLE);
                     mPathLogo.start();
-
-
                 } else {
                     startLogoAnimation();
                 }

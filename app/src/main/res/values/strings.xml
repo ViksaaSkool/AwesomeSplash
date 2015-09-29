@@ -1,6 +1,36 @@
 <resources>
     <string name="app_name">Awesome Splash</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <!-- MainActivity Strings -->
+    <string name="anim_tech">Animation Techniques</string>
+    <string name="logo_or_path">Logo or Path | Currently: %1$s</string>
+    <string name="logo">Logo</string>
+    <string name="path">Path</string>
+
+    <string name="circ_title">Circular Reveal Adjustments</string>
+    <string name="logo_title">Logo Adjustments</string>
+    <string name="path_title">Path Adjustments</string>
+    <string name="app_title">App Title Adjustments</string>
+
+    <string name="circ_duration">Set Duration</string>
+    <string name="circ_color">Choose Background Color</string>
+    <string name="circ_point">Set Starting Point</string>
+
+    <string-array name="colors">
+        <item>@color/Brown</item>
+        <item>@color/Cyan</item>
+        <item>@color/Beige</item>
+        <item>@color/Coral</item>
+        <item>@color/Chocolate</item>
+        <item>@color/Green</item>
+        <item>@color/DarkViolet</item>
+        <item>@color/WhiteSmoke</item>
+        <item>@color/Black</item>
+        <item>@color/Blue</item>
+        <item>@color/DarkRed</item>
+        <item>@color/DodgerBlue</item>
+        <item>@color/YellowGreen</item>
+    </string-array>
+
+
 </resources>
