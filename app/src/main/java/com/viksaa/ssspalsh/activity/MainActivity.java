@@ -1,6 +1,7 @@
 package com.viksaa.ssspalsh.activity;
 
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatSpinner;
@@ -8,16 +9,18 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 
 import com.viksaa.ssspalsh.R;
 import com.viksaa.ssspalsh.adapters.ColorAdapter;
+import com.viksaa.ssspalsh.dialogfragment.ListDialogFragment;
 import com.viksaa.ssspalsh.helpers.ChangeActivityHelper;
 import com.viksaa.ssspalsh.util.Constants;
+import com.viksaa.ssspalsh.util.UIUtil;
 import com.viksaa.sssplash.lib.cnst.Flags;
 import com.viksaa.sssplash.lib.model.ConfigSplash;
 
@@ -49,6 +52,16 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     SeekBar mSbCircD;
     @Bind(R.id.txtCircDur)
     AppCompatTextView mCxtCircDur;
+    @Bind(R.id.txtLogoTech)
+    AppCompatTextView mtxtLogoTech;
+    @Bind(R.id.txtLogoDur)
+    AppCompatTextView mTxtLogoDur;
+    @Bind(R.id.sbLogoDuration)
+    SeekBar mSbLogoDur;
+    @Bind(R.id.llAnimLogoTech)
+    LinearLayout mLlAnimLogoTech;
+    @Bind(R.id.crParent)
+    CoordinatorLayout mCrParent;
 
     private ConfigSplash mConfigSplash;
     private ColorAdapter mCircColor;
@@ -66,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void init() {
         setSupportActionBar(mToolbar);
         mConfigSplash = new ConfigSplash();
+        UIUtil.hideSoftKeyOutsideET(this, mCrParent);
 
         doSwitchCheck();
 
@@ -80,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         mCxtCircDur.setText(text);
 
 
-        //ListDialogFragment.newInstance(Constants.FOR_LOGO).show(getSupportFragmentManager(), "listDialogFragment");
+        mSbLogoDur.setOnSeekBarChangeListener(this);
+        mTxtLogoDur.setText(text);
+        mtxtLogoTech.setText("FadeInDown");
     }
 
 
@@ -99,7 +115,19 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @OnItemSelected(R.id.spCircColor)
     public void onCircColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        mConfigSplash.setBackgroundColor(mCircColor.getColors().getResourceId(arg2, 0));
+        switch (arg1.getId()) {
+            case R.id.spCircColor:
+                mConfigSplash.setBackgroundColor(mCircColor.getColors().getResourceId(arg2, 0));
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    @OnClick(R.id.llAnimLogoTech)
+    public void onLogoAnimTech() {
+        ListDialogFragment.newInstance(Constants.FOR_LOGO).show(getSupportFragmentManager(), "listDialogFragment");
     }
 
     @Override
@@ -115,13 +143,15 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
         duration *= progressChanged;
         duration += bonus;
-        String text = "";
+        String text = String.format(getString(R.string.circ_duration), Integer.toString(duration));
         switch (seekBar.getId()) {
             case R.id.sbCircDuration:
-                text = String.format(getString(R.string.circ_duration), Integer.toString(duration));
                 mCxtCircDur.setText(text);
-                Log.d("SP", text);
                 mConfigSplash.setAnimCircularRevealDuration(duration);
+                break;
+            case R.id.sbLogoDuration:
+                mTxtLogoDur.setText(text);
+                mConfigSplash.setAnimLogoSplashDuration(duration);
                 break;
 
             default:
@@ -135,6 +165,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     }
 
     /* Helper methods */
+
     public void doSwitchCheck() {
         String text = "";
         if (mSLogoOrPath.isChecked()) {
@@ -168,6 +199,21 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         }
     }
 
+    public void setTechnique(int flag, String tech) {
+        if (flag == Constants.FOR_LOGO)
+            mtxtLogoTech.setText(tech);
+        else {
+
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        UIUtil.hideKeyboard(this);
+    }
+
     /* Getters and Setters */
     public ConfigSplash getConfigSplash() {
         return mConfigSplash;
@@ -176,7 +222,6 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void setConfigSplash(ConfigSplash mConfigSplash) {
         this.mConfigSplash = mConfigSplash;
     }
-
 
     /* Unused */
     @Override

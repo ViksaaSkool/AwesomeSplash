@@ -20,6 +20,21 @@
     <string name="circ_l">Left</string>
     <string name="circ_r">Right</string>
 
+    <string name="logo_tech">Animation | Current: </string>
+    <string name="logo_duration">Set Duration | Currently: %1$sms</string>
+
+    <string name="path_d_duration">Set Drawing Duration | Currently: %1$sms</string>
+    <string name="path_f_duration">Set Filling Duration | Currently: %1$sms</string>
+    <string name="path_st_size">Set Stroke Size (1  &#8211; 9)</string>
+    <string name="path_s_color">Stroke Color</string>
+    <string name="path_f_color">Fill Color</string>
+
+    <string name="title_et">Set App Title</string>
+    <string name="title_font">Set Font</string>
+    <string name="title_size">Set Title Size (sp)</string>
+    <string name="title_duration">Set Duration | Currently: %1$sms</string>
+    <string name="title_color">Set Title Color</string>
+
 
     <string-array name="colors">
         <item>@color/primary</item>

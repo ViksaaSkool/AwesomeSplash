@@ -68,12 +68,14 @@ public class ListDialogFragment extends AppCompatDialogFragment {
     @OnItemClick(R.id.lvTechn)
     public void onListClick(AdapterView<?> parent, View view, int position, long id) {
         Techniques t = Techniques.values()[position];
-
+        MainActivity a = ((MainActivity) getActivity());
         String selected = UIUtil.getTechniqueTitle(mAdapter.getItem(position));
         if (forWhat == Constants.FOR_LOGO) {
-            ((MainActivity) getActivity()).getConfigSplash().setAnimLogoTechn(t);
+            a.getConfigSplash().setAnimLogoTechn(t);
+            a.setTechnique(Constants.FOR_LOGO, selected);
         } else {
-            ((MainActivity) getActivity()).getConfigSplash().setAnimTextTechn(t);
+            a.getConfigSplash().setAnimTextTechn(t);
+            a.setTechnique(Constants.FOR_TEXT, selected);
         }
 
 

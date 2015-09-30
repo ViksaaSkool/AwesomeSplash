@@ -4,12 +4,12 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.daimajia.androidanimations.library.YoYo;
 import com.github.jorgecastillo.FillableLoader;
@@ -34,7 +34,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
 
     private RelativeLayout mRlReveal;
     private ImageView mImgLogo;
-    private TextView mTxtTitle;
+    private AppCompatTextView mTxtTitle;
     private FillableLoader mPathLogo;
     private FrameLayout mFl;
 
@@ -62,7 +62,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         setContentView(R.layout.activity_main_lib);
 
         mRlReveal = (RelativeLayout) findViewById(R.id.rlColor);
-        mTxtTitle = (TextView) findViewById(R.id.txtTitle);
+        mTxtTitle = (AppCompatTextView) findViewById(R.id.txtTitle);
 
 
         switch (flag) {
