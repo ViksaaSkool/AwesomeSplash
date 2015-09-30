@@ -38,6 +38,7 @@
 
     <string-array name="colors">
         <item>@color/primary</item>
+        <item>@color/accent</item>
         <item>@color/Brown</item>
         <item>@color/Cyan</item>
         <item>@color/Beige</item>

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.ssspalsh.R;
 import com.viksaa.ssspalsh.util.Constants;
 import com.viksaa.ssspalsh.util.UIUtil;
@@ -41,11 +40,13 @@ public class FontsAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.item, null, false);
-        TextView t = (TextView) v.findViewById(R.id.list_item_text);
-        String name = UIUtil.getFontTitle(Constants.FONTS[position]);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.fnt_item, null, false);
+        TextView t = (TextView) v.findViewById(R.id.font_item_text);
+        String name = "";
+        if (position != 0)
+            name = UIUtil.getFontTitle(Constants.FONTS[position]);
         t.setText(name);
-        v.setTag(Techniques.values()[position]);
+        //v.setTag(Techniques.values()[position]);
         return v;
     }
 }

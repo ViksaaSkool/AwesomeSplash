@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.CardView;
@@ -17,6 +18,7 @@ import android.widget.SeekBar;
 
 import com.viksaa.ssspalsh.R;
 import com.viksaa.ssspalsh.adapters.ColorAdapter;
+import com.viksaa.ssspalsh.adapters.FontsAdapter;
 import com.viksaa.ssspalsh.dialogfragment.ListDialogFragment;
 import com.viksaa.ssspalsh.helpers.ChangeActivityHelper;
 import com.viksaa.ssspalsh.util.Constants;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @Bind(R.id.fabReady)
     FloatingActionButton mFabReady;
     @Bind(R.id.spCircColor)
-    AppCompatSpinner mCpCircColor;
+    AppCompatSpinner mSpCircColor;
     @Bind(R.id.rgY)
     RadioGroup mRgY;
     @Bind(R.id.rgX)
@@ -62,9 +64,40 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     LinearLayout mLlAnimLogoTech;
     @Bind(R.id.crParent)
     CoordinatorLayout mCrParent;
+    @Bind(R.id.spTitleFont)
+    AppCompatSpinner mSpTitleFont;
+    @Bind(R.id.spTitleColor)
+    AppCompatSpinner mSpTitleColor;
+    @Bind(R.id.spPathStrokeColor)
+    AppCompatSpinner mSpPathStrokeColor;
+    @Bind(R.id.spPathFillColor)
+    AppCompatSpinner mSpPathFillColor;
+    @Bind(R.id.txtPathDrawDur)
+    AppCompatTextView mTxtPathDrawDur;
+    @Bind(R.id.sbPathDrawDuration)
+    SeekBar mSbPathDrawDuration;
+    @Bind(R.id.txtPathFillDur)
+    AppCompatTextView mTxtPathFillDur;
+    @Bind(R.id.sbPathFillDuration)
+    SeekBar mSbPathFillDuration;
+    @Bind(R.id.txtTitleTech)
+    AppCompatTextView mTxtTitleTech;
+    @Bind(R.id.llAnimTitleTech)
+    LinearLayout llAnimTitleTech;
+    @Bind(R.id.etStrokeSize)
+    AppCompatEditText mEtStrokeSize;
+    @Bind(R.id.etTitle)
+    AppCompatEditText mEtTitle;
+    @Bind(R.id.etTitleSize)
+    AppCompatEditText mEtTitleSize;
+    @Bind(R.id.txtTitleDur)
+    AppCompatTextView mTxtTitleDur;
+    @Bind(R.id.sbTitleDuration)
+    SeekBar mSbTitleDuration;
 
     private ConfigSplash mConfigSplash;
-    private ColorAdapter mCircColor;
+    private ColorAdapter mColorAdapter;
+    private FontsAdapter mFontAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,26 +110,52 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
 
     public void init() {
+
+        //Essential
         setSupportActionBar(mToolbar);
         mConfigSplash = new ConfigSplash();
         UIUtil.hideSoftKeyOutsideET(this, mCrParent);
 
+        //Switch
         doSwitchCheck();
 
-        mCircColor = new ColorAdapter(this);
-        mCpCircColor.setAdapter(mCircColor);
+        //Colors
+        mColorAdapter = new ColorAdapter(this);
+        mSpCircColor.setAdapter(mColorAdapter);
+        mSpPathStrokeColor.setAdapter(mColorAdapter);
+        mSpPathStrokeColor.setSelection(9);
+        mSpPathFillColor.setAdapter(mColorAdapter);
+        mSpPathFillColor.setSelection(1);
+        mSpTitleColor.setAdapter(mColorAdapter);
+        mSpTitleColor.setSelection(9);
 
+        //Fonts
+        mFontAdapter = new FontsAdapter(this);
+        mSpTitleFont.setAdapter(mFontAdapter);
+
+        //RadioButtons
         mRgX.setOnCheckedChangeListener(this);
         mRgY.setOnCheckedChangeListener(this);
 
-        mSbCircD.setOnSeekBarChangeListener(this);
+        //Durations
         String text = String.format(getString(R.string.circ_duration), Integer.toString(1000));
+        String _text = String.format(getString(R.string.path_f_duration), Integer.toString(1000));
+        String __text = String.format(getString(R.string.path_d_duration), Integer.toString(1000));
         mCxtCircDur.setText(text);
-
-
-        mSbLogoDur.setOnSeekBarChangeListener(this);
         mTxtLogoDur.setText(text);
+        mTxtTitleDur.setText(text);
+        mTxtPathFillDur.setText(_text);
+        mTxtPathDrawDur.setText(__text);
+        mSbTitleDuration.setOnSeekBarChangeListener(this);
+        mSbPathDrawDuration.setOnSeekBarChangeListener(this);
+        mSbCircD.setOnSeekBarChangeListener(this);
+        mSbLogoDur.setOnSeekBarChangeListener(this);
+        mSbPathFillDuration.setOnSeekBarChangeListener(this);
+
+
+        //Animations
         mtxtLogoTech.setText("FadeInDown");
+        mTxtTitleTech.setText("SlideInUp");
     }
 
 
@@ -108,6 +167,13 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @OnClick(R.id.fabReady)
     public void onFabReady() {
+        if (!mEtStrokeSize.getText().toString().isEmpty())
+            mConfigSplash.setStrokeSize(Integer.valueOf(mEtStrokeSize.getText().toString()));
+        if (!mEtTitle.getText().toString().isEmpty())
+            mConfigSplash.setTextSplash(mEtTitle.getText().toString());
+        if (!mEtTitleSize.getText().toString().isEmpty())
+            mConfigSplash.setTextSize(Float.valueOf(mEtTitleSize.getText().toString()));
+
         Bundle b = new Bundle();
         b.putSerializable(Constants.CONFIG, mConfigSplash);
         ChangeActivityHelper.changeActivity(this, SplashActivity.class, false, b);
@@ -115,19 +181,38 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @OnItemSelected(R.id.spCircColor)
     public void onCircColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        switch (arg1.getId()) {
-            case R.id.spCircColor:
-                mConfigSplash.setBackgroundColor(mCircColor.getColors().getResourceId(arg2, 0));
-                break;
-            default:
-                break;
-        }
-
+        mConfigSplash.setBackgroundColor(mColorAdapter.getColors().getResourceId(arg2, 0));
     }
+
+    @OnItemSelected(R.id.spTitleColor)
+    public void onTextColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+        mConfigSplash.setTextColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+    }
+
+    @OnItemSelected(R.id.spPathStrokeColor)
+     public void onStrokeColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+        mConfigSplash.setStrokeColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+    }
+
+    @OnItemSelected(R.id.spPathFillColor)
+    public void onFillColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+        mConfigSplash.setFillColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+    }
+
+    @OnItemSelected(R.id.spTitleFont)
+    public void onFont(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+        mConfigSplash.setFont((String) mFontAdapter.getItem(arg2));
+    }
+
 
     @OnClick(R.id.llAnimLogoTech)
     public void onLogoAnimTech() {
         ListDialogFragment.newInstance(Constants.FOR_LOGO).show(getSupportFragmentManager(), "listDialogFragment");
+    }
+
+    @OnClick(R.id.llAnimTitleTech)
+    public void onTextAnimTech() {
+        ListDialogFragment.newInstance(Constants.FOR_TEXT).show(getSupportFragmentManager(), "listDialogFragment");
     }
 
     @Override
@@ -144,6 +229,8 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         duration *= progressChanged;
         duration += bonus;
         String text = String.format(getString(R.string.circ_duration), Integer.toString(duration));
+        String _text = String.format(getString(R.string.path_f_duration), Integer.toString(duration));
+        String __text = String.format(getString(R.string.path_d_duration), Integer.toString(duration));
         switch (seekBar.getId()) {
             case R.id.sbCircDuration:
                 mCxtCircDur.setText(text);
@@ -152,6 +239,20 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
             case R.id.sbLogoDuration:
                 mTxtLogoDur.setText(text);
                 mConfigSplash.setAnimLogoSplashDuration(duration);
+                break;
+            case R.id.sbTitleDuration:
+                mTxtTitleDur.setText(text);
+                mConfigSplash.setAnimTextDuration(duration);
+                break;
+
+            case R.id.sbPathDrawDuration:
+                mTxtPathDrawDur.setText(__text);
+                mConfigSplash.setAnimPathStrokeDrawing(duration);
+                break;
+
+            case R.id.sbPathFillDuration:
+                mTxtPathFillDur.setText(_text);
+                mConfigSplash.setAnimPathFilling(duration);
                 break;
 
             default:
@@ -176,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         } else {
             text = String.format(getString(R.string.logo_or_path), getString(R.string.logo));
             mConfigSplash.setLogoSplashPath("");
-            mConfigSplash.setLogoSplash(R.mipmap.ic_launcher);
+            mConfigSplash.setLogoSplash(R.drawable.ic_splash);
             mCvLogo.setVisibility(View.VISIBLE);
             mCvPath.setVisibility(View.GONE);
         }
@@ -203,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         if (flag == Constants.FOR_LOGO)
             mtxtLogoTech.setText(tech);
         else {
-
+            mTxtTitleTech.setText(tech);
         }
 
     }

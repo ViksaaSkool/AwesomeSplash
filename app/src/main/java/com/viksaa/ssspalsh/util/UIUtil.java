@@ -22,13 +22,13 @@ public class UIUtil {
     }
 
     public static String getFontTitle(String font) {
-        String _font = font.substring(font.indexOf("/"), font.indexOf("."));
-        _font = _font.substring(0,1).toUpperCase() + _font.substring(1).toLowerCase();
+         String _font = font.substring(font.indexOf("/") + 1, font.indexOf("."));
+        _font = _font.substring(0, 1).toUpperCase() + _font.substring(1).toLowerCase();
         _font = _font.replace("_", " ");
         return _font;
     }
 
-    public static String getTechniqueTitle(Object o){
+    public static String getTechniqueTitle(Object o) {
         int start = o.getClass().getName().lastIndexOf(".") + 1;
         return o.getClass().getName().substring(start);
     }
@@ -67,9 +67,9 @@ public class UIUtil {
         }
     }
 
-    public static int getToolbarHeight(Context c){
+    public static int getToolbarHeight(Context c) {
         /* this TypedArray should be recycled!!! */
-        final TypedArray styledAttributes = c.getTheme().obtainStyledAttributes(new int[] { android.R.attr.actionBarSize });
+        final TypedArray styledAttributes = c.getTheme().obtainStyledAttributes(new int[]{android.R.attr.actionBarSize});
         return (int) styledAttributes.getDimension(0, 0);
     }
 

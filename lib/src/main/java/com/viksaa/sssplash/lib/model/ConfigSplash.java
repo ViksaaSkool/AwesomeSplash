@@ -1,6 +1,7 @@
 package com.viksaa.sssplash.lib.model;
 
 import com.daimajia.androidanimations.library.Techniques;
+import com.viksaa.sssplash.lib.R;
 import com.viksaa.sssplash.lib.cnst.Defaults;
 import com.viksaa.sssplash.lib.cnst.Flags;
 
@@ -9,7 +10,7 @@ import java.io.Serializable;
 /**
  * Created by varsovski on 25-Sep-15.
  */
-public class ConfigSplash implements Serializable{
+public class ConfigSplash implements Serializable {
 
 
     //Circular Reveal
@@ -41,6 +42,7 @@ public class ConfigSplash implements Serializable{
     private float textSize;
     private int textColor;
 
+    //Getters and Setters
 
     public int getFillColor() {
         return fillColor;
@@ -97,9 +99,6 @@ public class ConfigSplash implements Serializable{
     public void setTextColor(int textColor) {
         this.textColor = textColor;
     }
-
-
-    //Getters and Setters
 
     public int getBackgroundColor() {
         return backgroundColor;
@@ -221,15 +220,11 @@ public class ConfigSplash implements Serializable{
         initDefaults();
     }
 
-
-
-
-
     public void initDefaults() {
         this.animCircularRevealDuration = Defaults.ANIM_REVEAL;
         this.revealFlagX = Flags.R_BOTTOM;
         this.revealFlagY = Flags.R_RIGHT;
-        this.backgroundColor = android.R.color.holo_orange_light;
+        this.backgroundColor = R.color.bckg;
 
         //Img Logo
         this.logoSplash = android.R.mipmap.sym_def_app_icon;
@@ -240,7 +235,7 @@ public class ConfigSplash implements Serializable{
         this.logoSplashPath = Defaults.EMPTY;
         this.strokeSize = Defaults.STROKE_WIDTH;
         this.strokeColor = android.R.color.white;
-        this.fillColor = android.R.color.holo_green_dark;
+        this.fillColor = R.color.filn;
         this.originalHeight = Defaults.ORIGINAL_HEIGHT;
         this.originalWidth = Defaults.ORIGINAL_WIDTH;
         this.animPathStrokeDrawing = Defaults.ANIM_DRAWING;
@@ -254,5 +249,4 @@ public class ConfigSplash implements Serializable{
         this.textColor = android.R.color.white;
         this.font = Defaults.EMPTY;
     }
-
 }
