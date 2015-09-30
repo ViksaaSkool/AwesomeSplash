@@ -100,13 +100,13 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mPathLogo = loaderBuilder
                 .parentView(mFl)
                 .layoutParams(params)
-                .svgPath(mConfigSplash.getLogoSplashPath())
+                .svgPath(mConfigSplash.getPathSplash())
                 .originalDimensions(mConfigSplash.getOriginalWidth(), mConfigSplash.getOriginalHeight())
-                .strokeWidth(mConfigSplash.getStrokeSize())
-                .strokeColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getStrokeColor())))))
-                .fillColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getFillColor())))))
-                .strokeDrawingDuration(mConfigSplash.getAnimPathStrokeDrawing())
-                .fillDuration(mConfigSplash.getAnimPathFilling())
+                .strokeWidth(mConfigSplash.getPathSplashStrokeSize())
+                .strokeColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getPathSplashStrokeColor())))))
+                .fillColor(Color.parseColor(String.format("#%06X", (0xFFFFFF & getResources().getColor(mConfigSplash.getPathSplashFillColor())))))
+                .strokeDrawingDuration(mConfigSplash.getAnimPathStrokeDrawingDuration())
+                .fillDuration(mConfigSplash.getAnimPathFillingDuration())
                 .clippingTransform(new PlainClippingTransform())
                 .build();
         mPathLogo.setOnStateChangeListener(new OnStateChangeListener() {
@@ -166,7 +166,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mImgLogo.setVisibility(View.VISIBLE);
         mImgLogo.setImageResource(mConfigSplash.getLogoSplash());
 
-        YoYo.with(mConfigSplash.getAnimLogoTechn()).withListener(new Animator.AnimatorListener() {
+        YoYo.with(mConfigSplash.getAnimLogoSplashTechnique()).withListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
 
@@ -192,11 +192,11 @@ abstract public class AwesomeSplash extends AppCompatActivity {
 
     public void startTextAnimation() {
 
-        mTxtTitle.setText(mConfigSplash.getTextSplash());
-        mTxtTitle.setTextSize(mConfigSplash.getTextSize());
-        mTxtTitle.setTextColor(getResources().getColor(mConfigSplash.getTextColor()));
-        if (!mConfigSplash.getFont().isEmpty())
-            setFont(mConfigSplash.getFont());
+        mTxtTitle.setText(mConfigSplash.getTitleSplash());
+        mTxtTitle.setTextSize(mConfigSplash.getTitleTextSize());
+        mTxtTitle.setTextColor(getResources().getColor(mConfigSplash.getTitleTextColor()));
+        if (!mConfigSplash.getTitleFont().isEmpty())
+            setFont(mConfigSplash.getTitleFont());
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         params.addRule(RelativeLayout.BELOW, R.id.flCentral);
@@ -204,7 +204,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
         mTxtTitle.setLayoutParams(params);
         mTxtTitle.setVisibility(View.VISIBLE);
 
-        YoYo.with(mConfigSplash.getAnimTextTechn()).withListener(new Animator.AnimatorListener() {
+        YoYo.with(mConfigSplash.getAnimTitleTechnique()).withListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
             }
@@ -223,7 +223,7 @@ abstract public class AwesomeSplash extends AppCompatActivity {
             public void onAnimationRepeat(Animator animation) {
 
             }
-        }).duration(mConfigSplash.getAnimTextDuration()).playOn(mTxtTitle);
+        }).duration(mConfigSplash.getAnimTitleDuration()).playOn(mTxtTitle);
     }
 
 

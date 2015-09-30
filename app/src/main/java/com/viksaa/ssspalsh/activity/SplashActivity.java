@@ -42,24 +42,24 @@ public class SplashActivity extends AwesomeSplash {
             cs1.setBackgroundColor(cs2.getBackgroundColor());
 
             cs1.setLogoSplash(cs2.getLogoSplash());
-            cs1.setAnimLogoTechn(cs2.getAnimLogoTechn());
+            cs1.setAnimLogoSplashTechnique(cs2.getAnimLogoSplashTechnique());
             cs1.setAnimLogoSplashDuration(cs2.getAnimLogoSplashDuration());
 
-            cs1.setLogoSplashPath(cs2.getLogoSplashPath());
-            cs1.setStrokeSize(cs2.getStrokeSize());
-            cs1.setStrokeColor(cs2.getStrokeColor());
-            cs1.setFillColor(cs2.getFillColor());
+            cs1.setPathSplash(cs2.getPathSplash());
+            cs1.setPathSplashStrokeSize(cs2.getPathSplashStrokeSize());
+            cs1.setPathSplashStrokeColor(cs2.getPathSplashStrokeColor());
+            cs1.setPathSplashFillColor(cs2.getPathSplashFillColor());
             cs1.setOriginalHeight(cs2.getOriginalHeight());
             cs1.setOriginalWidth(cs2.getOriginalWidth());
-            cs1.setAnimPathStrokeDrawing(cs2.getAnimPathStrokeDrawing());
-            cs1.setAnimPathFilling(cs2.getAnimPathFilling());
+            cs1.setAnimPathStrokeDrawingDuration(cs2.getAnimPathStrokeDrawingDuration());
+            cs1.setAnimPathFillingDuration(cs2.getAnimPathFillingDuration());
 
-            cs1.setTextSplash(cs2.getTextSplash());
-            cs1.setAnimTextDuration(cs2.getAnimTextDuration());
-            cs1.setAnimTextTechn(cs2.getAnimTextTechn());
-            cs1.setTextSize(cs2.getTextSize());
-            cs1.setTextColor(cs2.getTextColor());
-            cs1.setFont(cs2.getFont());
+            cs1.setTitleSplash(cs2.getTitleSplash());
+            cs1.setAnimTitleDuration(cs2.getAnimTitleDuration());
+            cs1.setAnimTitleTechnique(cs2.getAnimTitleTechnique());
+            cs1.setTitleTextSize(cs2.getTitleTextSize());
+            cs1.setTitleTextColor(cs2.getTitleTextColor());
+            cs1.setTitleFont(cs2.getTitleFont());
         }
     }
 

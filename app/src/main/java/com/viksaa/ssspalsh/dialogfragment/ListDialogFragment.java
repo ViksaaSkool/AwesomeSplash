@@ -71,10 +71,10 @@ public class ListDialogFragment extends AppCompatDialogFragment {
         MainActivity a = ((MainActivity) getActivity());
         String selected = UIUtil.getTechniqueTitle(mAdapter.getItem(position));
         if (forWhat == Constants.FOR_LOGO) {
-            a.getConfigSplash().setAnimLogoTechn(t);
+            a.getConfigSplash().setAnimLogoSplashTechnique(t);
             a.setTechnique(Constants.FOR_LOGO, selected);
         } else {
-            a.getConfigSplash().setAnimTextTechn(t);
+            a.getConfigSplash().setAnimTitleTechnique(t);
             a.setTechnique(Constants.FOR_TEXT, selected);
         }
 

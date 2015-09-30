@@ -168,11 +168,11 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     @OnClick(R.id.fabReady)
     public void onFabReady() {
         if (!mEtStrokeSize.getText().toString().isEmpty())
-            mConfigSplash.setStrokeSize(Integer.valueOf(mEtStrokeSize.getText().toString()));
+            mConfigSplash.setPathSplashStrokeSize(Integer.valueOf(mEtStrokeSize.getText().toString()));
         if (!mEtTitle.getText().toString().isEmpty())
-            mConfigSplash.setTextSplash(mEtTitle.getText().toString());
+            mConfigSplash.setTitleSplash(mEtTitle.getText().toString());
         if (!mEtTitleSize.getText().toString().isEmpty())
-            mConfigSplash.setTextSize(Float.valueOf(mEtTitleSize.getText().toString()));
+            mConfigSplash.setTitleTextSize(Float.valueOf(mEtTitleSize.getText().toString()));
 
         Bundle b = new Bundle();
         b.putSerializable(Constants.CONFIG, mConfigSplash);
@@ -186,22 +186,22 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
 
     @OnItemSelected(R.id.spTitleColor)
     public void onTextColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        mConfigSplash.setTextColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+        mConfigSplash.setTitleTextColor(mColorAdapter.getColors().getResourceId(arg2, 0));
     }
 
     @OnItemSelected(R.id.spPathStrokeColor)
      public void onStrokeColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        mConfigSplash.setStrokeColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+        mConfigSplash.setPathSplashStrokeColor(mColorAdapter.getColors().getResourceId(arg2, 0));
     }
 
     @OnItemSelected(R.id.spPathFillColor)
     public void onFillColors(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        mConfigSplash.setFillColor(mColorAdapter.getColors().getResourceId(arg2, 0));
+        mConfigSplash.setPathSplashFillColor(mColorAdapter.getColors().getResourceId(arg2, 0));
     }
 
     @OnItemSelected(R.id.spTitleFont)
     public void onFont(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-        mConfigSplash.setFont((String) mFontAdapter.getItem(arg2));
+        mConfigSplash.setTitleFont((String) mFontAdapter.getItem(arg2));
     }
 
 
@@ -242,17 +242,17 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             case R.id.sbTitleDuration:
                 mTxtTitleDur.setText(text);
-                mConfigSplash.setAnimTextDuration(duration);
+                mConfigSplash.setAnimTitleDuration(duration);
                 break;
 
             case R.id.sbPathDrawDuration:
                 mTxtPathDrawDur.setText(__text);
-                mConfigSplash.setAnimPathStrokeDrawing(duration);
+                mConfigSplash.setAnimPathStrokeDrawingDuration(duration);
                 break;
 
             case R.id.sbPathFillDuration:
                 mTxtPathFillDur.setText(_text);
-                mConfigSplash.setAnimPathFilling(duration);
+                mConfigSplash.setAnimPathFillingDuration(duration);
                 break;
 
             default:
@@ -271,12 +271,12 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
         String text = "";
         if (mSLogoOrPath.isChecked()) {
             text = String.format(getString(R.string.logo_or_path), getString(R.string.path));
-            mConfigSplash.setLogoSplashPath(Constants.DROID_LOGO);
+            mConfigSplash.setPathSplash(Constants.DROID_LOGO);
             mCvLogo.setVisibility(View.GONE);
             mCvPath.setVisibility(View.VISIBLE);
         } else {
             text = String.format(getString(R.string.logo_or_path), getString(R.string.logo));
-            mConfigSplash.setLogoSplashPath("");
+            mConfigSplash.setPathSplash("");
             mConfigSplash.setLogoSplash(R.drawable.ic_splash);
             mCvLogo.setVisibility(View.VISIBLE);
             mCvPath.setVisibility(View.GONE);
@@ -287,15 +287,15 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void doRadioGroupCheck(int flag) {
         if (flag == R.id.rgY) {
             if (mRgY.getCheckedRadioButtonId() == R.id.bottom) {
-                mConfigSplash.setRevealFlagX(Flags.R_BOTTOM);
+                mConfigSplash.setRevealFlagX(Flags.REVEAL_BOTTOM);
             } else {
-                mConfigSplash.setRevealFlagX(Flags.R_TOP);
+                mConfigSplash.setRevealFlagX(Flags.REVEAL_TOP);
             }
         } else {
             if (mRgX.getCheckedRadioButtonId() == R.id.right) {
-                mConfigSplash.setRevealFlagY(Flags.R_RIGHT);
+                mConfigSplash.setRevealFlagY(Flags.REVEAL_RIGHT);
             } else {
-                mConfigSplash.setRevealFlagY(Flags.R_LEFT);
+                mConfigSplash.setRevealFlagY(Flags.REVEAL_LEFT);
             }
         }
     }

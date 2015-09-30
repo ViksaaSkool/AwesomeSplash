@@ -15,16 +15,16 @@ public class UIUtil {
     public static int getRevealDirection(RelativeLayout rl, int flag){
         int result = 0;
         switch (flag){
-            case Flags.R_BOTTOM:
+            case Flags.REVEAL_BOTTOM:
                 result = rl.getBottom();
                 break;
-            case Flags.R_TOP:
+            case Flags.REVEAL_TOP:
                 result = rl.getTop();
                 break;
-            case Flags.R_LEFT:
+            case Flags.REVEAL_LEFT:
                 result = rl.getLeft();
                 break;
-            case Flags.R_RIGHT:
+            case Flags.REVEAL_RIGHT:
                 result = rl.getRight();
                 break;
         }

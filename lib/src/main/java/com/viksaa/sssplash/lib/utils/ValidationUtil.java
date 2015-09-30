@@ -9,7 +9,7 @@ import com.viksaa.sssplash.lib.model.ConfigSplash;
 public class ValidationUtil {
 
     public static int hasPath(ConfigSplash cs) {
-        if (cs.getLogoSplashPath().isEmpty())
+        if (cs.getPathSplash().isEmpty())
             return Flags.WITH_LOGO;
         else
             return Flags.WITH_PATH;

@@ -21,51 +21,51 @@ public class ConfigSplash implements Serializable {
 
     //Img Logo
     private int logoSplash;
-    private Techniques animLogoTechn;
+    private Techniques animLogoSplashTechnique;
     private int animLogoSplashDuration;
 
     //Path Logo
-    private String logoSplashPath;
-    private int strokeSize;
-    private int strokeColor;
-    private int fillColor;
+    private String pathSplash;
+    private int pathSplashStrokeSize;
+    private int pathSplashStrokeColor;
+    private int pathSplashFillColor;
     private int originalHeight;
     private int originalWidth;
-    private int animPathStrokeDrawing;
-    private int animPathFilling;
+    private int animPathStrokeDrawingDuration;
+    private int animPathFillingDuration;
 
     //Text
-    private String textSplash;
-    private String font;
-    private int animTextDuration;
-    private Techniques animTextTechn;
-    private float textSize;
-    private int textColor;
+    private String titleSplash;
+    private String titleFont;
+    private int animTitleDuration;
+    private Techniques animTitleTechnique;
+    private float titleTextSize;
+    private int titleTextColor;
 
     //Getters and Setters
 
-    public int getFillColor() {
-        return fillColor;
+    public int getPathSplashFillColor() {
+        return pathSplashFillColor;
     }
 
-    public void setFillColor(int fillColor) {
-        this.fillColor = fillColor;
+    public void setPathSplashFillColor(int fillColor) {
+        this.pathSplashFillColor = fillColor;
     }
 
-    public int getStrokeSize() {
-        return strokeSize;
+    public int getPathSplashStrokeSize() {
+        return pathSplashStrokeSize;
     }
 
-    public void setStrokeSize(int strokeSize) {
-        this.strokeSize = strokeSize;
+    public void setPathSplashStrokeSize(int pathSplashStrokeSize) {
+        this.pathSplashStrokeSize = pathSplashStrokeSize;
     }
 
-    public int getStrokeColor() {
-        return strokeColor;
+    public int getPathSplashStrokeColor() {
+        return pathSplashStrokeColor;
     }
 
-    public void setStrokeColor(int strokeColor) {
-        this.strokeColor = strokeColor;
+    public void setPathSplashStrokeColor(int strokeColor) {
+        this.pathSplashStrokeColor = strokeColor;
     }
 
     public int getOriginalHeight() {
@@ -84,20 +84,20 @@ public class ConfigSplash implements Serializable {
         this.originalWidth = originalWidth;
     }
 
-    public float getTextSize() {
-        return textSize;
+    public float getTitleTextSize() {
+        return titleTextSize;
     }
 
-    public void setTextSize(float textSize) {
-        this.textSize = textSize;
+    public void setTitleTextSize(float textSize) {
+        this.titleTextSize = textSize;
     }
 
-    public int getTextColor() {
-        return textColor;
+    public int getTitleTextColor() {
+        return titleTextColor;
     }
 
-    public void setTextColor(int textColor) {
-        this.textColor = textColor;
+    public void setTitleTextColor(int textColor) {
+        this.titleTextColor = textColor;
     }
 
     public int getBackgroundColor() {
@@ -109,12 +109,12 @@ public class ConfigSplash implements Serializable {
     }
 
 
-    public Techniques getAnimLogoTechn() {
-        return animLogoTechn;
+    public Techniques getAnimLogoSplashTechnique() {
+        return animLogoSplashTechnique;
     }
 
-    public void setAnimLogoTechn(Techniques animLogoTechn) {
-        this.animLogoTechn = animLogoTechn;
+    public void setAnimLogoSplashTechnique(Techniques animLogoSplashTechnique) {
+        this.animLogoSplashTechnique = animLogoSplashTechnique;
     }
 
 
@@ -135,12 +135,12 @@ public class ConfigSplash implements Serializable {
         this.logoSplash = logoSplash;
     }
 
-    public String getLogoSplashPath() {
-        return logoSplashPath;
+    public String getPathSplash() {
+        return pathSplash;
     }
 
-    public void setLogoSplashPath(String logoSplashPath) {
-        this.logoSplashPath = logoSplashPath;
+    public void setPathSplash(String pathSplash) {
+        this.pathSplash = pathSplash;
     }
 
     public int getAnimLogoSplashDuration() {
@@ -151,28 +151,28 @@ public class ConfigSplash implements Serializable {
         this.animLogoSplashDuration = animLogoSplashDuration;
     }
 
-    public String getTextSplash() {
-        return textSplash;
+    public String getTitleSplash() {
+        return titleSplash;
     }
 
-    public void setTextSplash(String textSplash) {
-        this.textSplash = textSplash;
+    public void setTitleSplash(String titleSplash) {
+        this.titleSplash = titleSplash;
     }
 
-    public int getAnimTextDuration() {
-        return animTextDuration;
+    public int getAnimTitleDuration() {
+        return animTitleDuration;
     }
 
-    public void setAnimTextDuration(int animTextDuration) {
-        this.animTextDuration = animTextDuration;
+    public void setAnimTitleDuration(int animTitleDuration) {
+        this.animTitleDuration = animTitleDuration;
     }
 
-    public Techniques getAnimTextTechn() {
-        return animTextTechn;
+    public Techniques getAnimTitleTechnique() {
+        return animTitleTechnique;
     }
 
-    public void setAnimTextTechn(Techniques animTextTechn) {
-        this.animTextTechn = animTextTechn;
+    public void setAnimTitleTechnique(Techniques animTitleTechnique) {
+        this.animTitleTechnique = animTitleTechnique;
     }
 
 
@@ -192,28 +192,28 @@ public class ConfigSplash implements Serializable {
         this.revealFlagY = revealFlagY;
     }
 
-    public int getAnimPathStrokeDrawing() {
-        return animPathStrokeDrawing;
+    public int getAnimPathStrokeDrawingDuration() {
+        return animPathStrokeDrawingDuration;
     }
 
-    public void setAnimPathStrokeDrawing(int animPathStrokeDrawing) {
-        this.animPathStrokeDrawing = animPathStrokeDrawing;
+    public void setAnimPathStrokeDrawingDuration(int animPathStrokeDrawingDuration) {
+        this.animPathStrokeDrawingDuration = animPathStrokeDrawingDuration;
     }
 
-    public int getAnimPathFilling() {
-        return animPathFilling;
+    public int getAnimPathFillingDuration() {
+        return animPathFillingDuration;
     }
 
-    public void setAnimPathFilling(int animPathFilling) {
-        this.animPathFilling = animPathFilling;
+    public void setAnimPathFillingDuration(int animPathFillingDuration) {
+        this.animPathFillingDuration = animPathFillingDuration;
     }
 
-    public String getFont() {
-        return font;
+    public String getTitleFont() {
+        return titleFont;
     }
 
-    public void setFont(String font) {
-        this.font = font;
+    public void setTitleFont(String titleFont) {
+        this.titleFont = titleFont;
     }
 
     public ConfigSplash() {
@@ -222,31 +222,31 @@ public class ConfigSplash implements Serializable {
 
     public void initDefaults() {
         this.animCircularRevealDuration = Defaults.ANIM_REVEAL;
-        this.revealFlagX = Flags.R_BOTTOM;
-        this.revealFlagY = Flags.R_RIGHT;
+        this.revealFlagX = Flags.REVEAL_BOTTOM;
+        this.revealFlagY = Flags.REVEAL_RIGHT;
         this.backgroundColor = R.color.bckg;
 
         //Img Logo
         this.logoSplash = android.R.mipmap.sym_def_app_icon;
-        this.animLogoTechn = Techniques.FadeInDown;
+        this.animLogoSplashTechnique = Techniques.FadeInDown;
         this.animLogoSplashDuration = Defaults.ANIM_LOGO;
 
         //Path Logo
-        this.logoSplashPath = Defaults.EMPTY;
-        this.strokeSize = Defaults.STROKE_WIDTH;
-        this.strokeColor = android.R.color.white;
-        this.fillColor = R.color.filn;
+        this.pathSplash = Defaults.EMPTY;
+        this.pathSplashStrokeSize = Defaults.STROKE_WIDTH;
+        this.pathSplashStrokeColor = android.R.color.white;
+        this.pathSplashFillColor = R.color.filn;
         this.originalHeight = Defaults.ORIGINAL_HEIGHT;
         this.originalWidth = Defaults.ORIGINAL_WIDTH;
-        this.animPathStrokeDrawing = Defaults.ANIM_DRAWING;
-        this.animPathFilling = Defaults.ANIM_FILLING;
+        this.animPathStrokeDrawingDuration = Defaults.ANIM_DRAWING;
+        this.animPathFillingDuration = Defaults.ANIM_FILLING;
 
         //Text
-        this.textSplash = Defaults.APP_TITLE;
-        this.animTextDuration = Defaults.ANIM_TEXT;
-        this.animTextTechn = Techniques.SlideInUp;
-        this.textSize = Defaults.TEXT_SIZE;
-        this.textColor = android.R.color.white;
-        this.font = Defaults.EMPTY;
+        this.titleSplash = Defaults.APP_TITLE;
+        this.animTitleDuration = Defaults.ANIM_TEXT;
+        this.animTitleTechnique = Techniques.SlideInUp;
+        this.titleTextSize = Defaults.TEXT_SIZE;
+        this.titleTextColor = android.R.color.white;
+        this.titleFont = Defaults.EMPTY;
     }
 }
