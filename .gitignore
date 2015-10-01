@@ -6,7 +6,7 @@
 /captures
 s
 # Build files
-*.apk
+# *.apk
 *.ap_
 *.dex
 *.class
