@@ -222,8 +222,8 @@ public class ConfigSplash implements Serializable {
 
     public void initDefaults() {
         this.animCircularRevealDuration = Defaults.ANIM_REVEAL;
-        this.revealFlagX = Flags.REVEAL_BOTTOM;
-        this.revealFlagY = Flags.REVEAL_RIGHT;
+        this.revealFlagX = Flags.REVEAL_RIGHT;
+        this.revealFlagY = Flags.REVEAL_BOTTOM;
         this.backgroundColor = R.color.bckg;
 
         //Img Logo

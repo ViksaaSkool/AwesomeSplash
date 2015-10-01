@@ -287,15 +287,15 @@ public class MainActivity extends AppCompatActivity implements RadioGroup.OnChec
     public void doRadioGroupCheck(int flag) {
         if (flag == R.id.rgY) {
             if (mRgY.getCheckedRadioButtonId() == R.id.bottom) {
-                mConfigSplash.setRevealFlagX(Flags.REVEAL_BOTTOM);
+                mConfigSplash.setRevealFlagY(Flags.REVEAL_BOTTOM);
             } else {
-                mConfigSplash.setRevealFlagX(Flags.REVEAL_TOP);
+                mConfigSplash.setRevealFlagY(Flags.REVEAL_TOP);
             }
         } else {
             if (mRgX.getCheckedRadioButtonId() == R.id.right) {
-                mConfigSplash.setRevealFlagY(Flags.REVEAL_RIGHT);
+                mConfigSplash.setRevealFlagX(Flags.REVEAL_RIGHT);
             } else {
-                mConfigSplash.setRevealFlagY(Flags.REVEAL_LEFT);
+                mConfigSplash.setRevealFlagX(Flags.REVEAL_LEFT);
             }
         }
     }
