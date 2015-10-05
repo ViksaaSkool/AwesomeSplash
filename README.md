@@ -95,7 +95,8 @@ public class YourActivity extends AwesomeSplash {
 	@Override
 	public void animationsFinished() {
 
-			//transit to another activity the activity here
+			//transit to another activity here
+			//or do whatever you want
 	}
 }
 ```
