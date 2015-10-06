@@ -87,9 +87,4 @@ public class ListDialogFragment extends AppCompatDialogFragment {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
-
-    /*@Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-    }*/
 }
