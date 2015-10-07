@@ -37,12 +37,19 @@ So before diving into AwesomeSplash library, look into the libraries. Especially
 
 Add this to your build.grade:
 ```javascript
+	repositories {
+	//...
+        maven { url "https://jitpack.io" }
+    }
+```
+and then in dependencies:
+```javascript
 	dependencies {
-    	compile 'comming soon...'
+	        compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
 	}
 ```
 
-Here is how you do it:
+Here is how you utilze the library in your java code:
 
 ```java
 //extends AwesomeSplash!
@@ -99,6 +106,18 @@ public class YourActivity extends AwesomeSplash {
 			//or do whatever you want
 	}
 }
+```
+
+IMPORTANT: 
+In order to set Animation Techniques to the Logo and/or App Title you need to add this to your dependencies
+
+```javascript
+	dependencies {
+        compile 'com.nineoldandroids:library:2.4.0'
+        compile 'com.daimajia.easing:library:1.0.1@aar'
+        compile 'com.daimajia.androidanimations:library:1.1.3@aar'
+}
+
 ```
 
 License
