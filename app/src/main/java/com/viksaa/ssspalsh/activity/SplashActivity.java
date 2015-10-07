@@ -60,8 +60,6 @@ public class SplashActivity extends AwesomeSplash {
             cs1.setTitleTextSize(cs2.getTitleTextSize());
             cs1.setTitleTextColor(cs2.getTitleTextColor());
             cs1.setTitleFont(cs2.getTitleFont());
-
-            
         }
     }
 
