@@ -1,5 +1,7 @@
 # AwesomeSplash
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AwesomeSplash-green.svg?style=flat)](https://android-arsenal.com/details/1/2605)
+
 <img src="https://github.com/ViksaaSkool/AwesomeSplash/blob/master/rdme/web_res_512.png" width="96" height="96"/>
 
 Awesome-looking customizable splash screen
