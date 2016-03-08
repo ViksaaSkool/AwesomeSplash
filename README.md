@@ -122,6 +122,10 @@ In order to set Animation Techniques to the Logo and/or App Title you need to ad
 
 ```
 
+Implemented in
+--------------
+If you implement the library in your app(s) and you upload it/'em on Google Play, let me know.
+
 License
 --------
 
