@@ -132,7 +132,15 @@ Reiseuhu
 </br>
 </br>
 </br>
-<p>If you implement the library in your app(s) and you upload it'em on Google Play, let me know.</p>
+
+CliniShift
+</br>
+<a href="http://www.clinishift.com/"><img src="http://bit.ly/2d1KqQf" align="left" height="96" width="128" ></a>
+</br>
+</br>
+</br>
+</br>
+<p>If you implement the library in your app(s) and you upload it on Google Play, let me know.</p>
 
 
 License
