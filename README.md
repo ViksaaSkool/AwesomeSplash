@@ -9,7 +9,7 @@ Awesome-looking customizable splash screen
 <img src="https://github.com/ViksaaSkool/AwesomeSplash/blob/master/rdme/logo_promo.gif" width="210" height="330"/>
 <img src="https://github.com/ViksaaSkool/AwesomeSplash/blob/master/rdme/path_promo.gif" width="210" height="330"/>
 
-Splash screens have been around for quite a while. It's the fist thing the users see when they run your app, so make it simple yet eventful and impressionable.
+Splash screens have been around for quite a while. It's the first thing the users see when they run your app, so make it simple yet eventful and impressionable.
 This library does exactly that, provides you with beautiful template screen, with wide range of customizations to fit your concept of the splash screen. 
 To be noted, with the last acknowledgement form google that splash screens [got](http://is.gd/2MQzao), having a library that tackles this issue is kind of necessity. 
 
