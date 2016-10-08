@@ -135,7 +135,7 @@ Reiseuhu
 
 CliniShift
 </br>
-<a href="http://www.clinishift.com/"><img src="http://bit.ly/2d1KqQf" align="left" height="86" width="128" ></a>
+<a href="http://www.clinishift.com/"><img src="http://bit.ly/2d1aSrM" align="left" height="96" width="96" ></a>
 </br>
 </br>
 </br>
