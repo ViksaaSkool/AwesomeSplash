@@ -110,17 +110,6 @@ public class YourActivity extends AwesomeSplash {
 }
 ```
 
-IMPORTANT: 
-In order to set Animation Techniques to the Logo and/or App Title you need to add this to your dependencies
-
-```javascript
-	dependencies {
-        compile 'com.nineoldandroids:library:2.4.0'
-        compile 'com.daimajia.easing:library:1.0.1@aar'
-        compile 'com.daimajia.androidanimations:library:1.1.3@aar'
-}
-
-```
 
 Implemented in
 --------------
