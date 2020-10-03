@@ -12,6 +12,8 @@ import com.viksaa.sssplash.lib.model.ConfigSplash;
  * Created by varsovski on 28-Sep-15.
  */
 public class SplashActivity extends AwesomeSplash {
+    
+     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
     @Override
