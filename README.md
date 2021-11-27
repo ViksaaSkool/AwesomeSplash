@@ -64,7 +64,7 @@ class YourActivity : AwesomeSplash() {
 	/* you don't have to override every property */
 
         //Customize Circular Reveal
-        configSplash?.backgroundColor = R.color.purple_500 //any color you want form colors.xml
+        configSplash?.backgroundColor = R.color.purple_500 //any color you want from colors.xml
         configSplash?.animCircularRevealDuration = 2000 //int ms
         configSplash?.revealFlagX = Flags.REVEAL_RIGHT  //or Flags.REVEAL_LEFT
         configSplash?.revealFlagY = Flags.REVEAL_BOTTOM //or Flags.REVEAL_TOP
@@ -82,7 +82,7 @@ class YourActivity : AwesomeSplash() {
         configSplash?.originalWidth = 400 //in relation to your svg (path) resource
         configSplash?.animPathStrokeDrawingDuration = 3000
         configSplash?.pathSplashStrokeSize = 3 //I advise value be <5
-        configSplash?.pathSplashStrokeColor = R.color.teal_200 //any color you want form colors.xml
+        configSplash?.pathSplashStrokeColor = R.color.teal_200 //any color you want from colors.xml
         configSplash?.animPathFillingDuration = 3000
         configSplash?.pathSplashFillColor = R.color.white //path object filling color
 
