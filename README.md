@@ -40,8 +40,8 @@ So before diving into AwesomeSplash library, look into the libraries. Especially
 Add this to your settings.gradle:
 ```groovy
 	repositories {
-	//...
-        maven { url "https://jitpack.io" }
+	    //...
+            maven { url "https://jitpack.io" }
     }
 ```
 
