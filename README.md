@@ -54,6 +54,7 @@ and then in dependencies:
 
 Here is how you utilize the library in your Kotlin code:
 ```kotlin
+//extends AwesomeSplash!
 class YourActivity : AwesomeSplash() {
 
 	//DO NOT OVERRIDE onCreate()!
