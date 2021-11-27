@@ -37,21 +37,74 @@ So before diving into AwesomeSplash library, look into the libraries. Especially
 
 # Usage
 
-Add this to your build.grade:
-```javascript
+Add this to your settings.gradle:
+```groovy
 	repositories {
 	//...
         maven { url "https://jitpack.io" }
     }
 ```
+
 and then in dependencies:
-```javascript
+```groovy
 	dependencies {
-	        compile 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+	        implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
 	}
 ```
 
-Here is how you utilze the library in your java code:
+Here is how you utilize the library in your Kotlin code:
+```kotlin
+class YourActivity : AwesomeSplash() {
+
+	//DO NOT OVERRIDE onCreate()!
+	//if you need to start some services do it in initSplash()!
+
+    override fun initSplash(configSplash: ConfigSplash?) {
+
+	/* you don't have to override every property */
+
+        //Customize Circular Reveal
+        configSplash?.backgroundColor = R.color.purple_500 //any color you want form colors.xml
+        configSplash?.animCircularRevealDuration = 2000 //int ms
+        configSplash?.revealFlagX = Flags.REVEAL_RIGHT  //or Flags.REVEAL_LEFT
+        configSplash?.revealFlagY = Flags.REVEAL_BOTTOM //or Flags.REVEAL_TOP
+
+	//Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
+
+        //Customize Logo
+        configSplash?.logoSplash = R.mipmap.ic_launcher //or any other drawable
+        configSplash?.animLogoSplashDuration = 3000 //int ms
+        configSplash?.animLogoSplashTechnique = Techniques.RotateIn //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
+
+        //Customize Path
+        configSplash?.pathSplash = Constants.DROID_LOGO //set path String
+        configSplash?.originalHeight = 400 //in relation to your svg (path) resource
+        configSplash?.originalWidth = 400 //in relation to your svg (path) resource
+        configSplash?.animPathStrokeDrawingDuration = 3000
+        configSplash?.pathSplashStrokeSize = 3 //I advise value be <5
+        configSplash?.pathSplashStrokeColor = R.color.teal_200 //any color you want form colors.xml
+        configSplash?.animPathFillingDuration = 3000
+        configSplash?.pathSplashFillColor = R.color.white //path object filling color
+
+        //Customize Title
+        configSplash?.titleSplash = "My Awesome App"
+        configSplash?.titleTextColor = R.color.white
+        configSplash?.titleTextSize = 30f //float value
+        configSplash?.animTitleDuration = 3000
+        configSplash?.animTitleTechnique = Techniques.Bounce
+	configSplash?.titleFont = "fonts/myfont.ttf" //provide string to your font located in assets/fonts/
+	
+    }
+
+    override fun animationsFinished() {
+    	//transit to another activity here
+	//or do whatever you want
+    }
+    
+}
+```
+
+Here is how you utilize the library in your Java code:
 
 ```java
 //extends AwesomeSplash!
@@ -60,52 +113,48 @@ public class YourActivity extends AwesomeSplash {
 	//DO NOT OVERRIDE onCreate()!
 	//if you need to start some services do it in initSplash()!
 
-
 	@Override
 	public void initSplash(ConfigSplash configSplash) {
 
-			/* you don't have to override every property */
+		/* you don't have to override every property */
 
-			//Customize Circular Reveal
-			configSplash.setBackgroundColor(R.color.primary); //any color you want form colors.xml
-			configSplash.setAnimCircularRevealDuration(2000); //int ms
-			configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
-			configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
+		//Customize Circular Reveal
+		configSplash.setBackgroundColor(R.color.purple_500); //any color you want form colors.xml
+		configSplash.setAnimCircularRevealDuration(2000); //int ms
+		configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
+		configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
 
-			//Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
+		//Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
-			//Customize Logo
-			configSplash.setLogoSplash(R.mipmap.ic_launcher); //or any other drawable
-			configSplash.setAnimLogoSplashDuration(2000); //int ms
-			configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
+		//Customize Logo
+		configSplash.setLogoSplash(R.mipmap.ic_launcher); //or any other drawable
+		configSplash.setAnimLogoSplashDuration(2000); //int ms
+		configSplash.setAnimLogoSplashTechnique(Techniques.Bounce); //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
 
+		//Customize Path
+		configSplash.setPathSplash(Constants.DROID_LOGO); //set path String
+		configSplash.setOriginalHeight(400); //in relation to your svg (path) resource
+		configSplash.setOriginalWidth(400); //in relation to your svg (path) resource
+		configSplash.setAnimPathStrokeDrawingDuration(3000);
+		configSplash.setPathSplashStrokeSize(3); //I advise value be <5
+		configSplash.setPathSplashStrokeColor(R.color.accent); //any color you want form colors.xml
+		configSplash.setAnimPathFillingDuration(3000);
+		configSplash.setPathSplashFillColor(R.color.Wheat); //path object filling color
 
-			//Customize Path
-			configSplash.setPathSplash(Constants.DROID_LOGO); //set path String
-			configSplash.setOriginalHeight(400); //in relation to your svg (path) resource
-			configSplash.setOriginalWidth(400); //in relation to your svg (path) resource
-			configSplash.setAnimPathStrokeDrawingDuration(3000);
-			configSplash.setPathSplashStrokeSize(3); //I advise value be <5
-			configSplash.setPathSplashStrokeColor(R.color.accent); //any color you want form colors.xml
-			configSplash.setAnimPathFillingDuration(3000);
-			configSplash.setPathSplashFillColor(R.color.Wheat); //path object filling color
-
-
-			//Customize Title
-			configSplash.setTitleSplash("My Awesome App");
-			configSplash.setTitleTextColor(R.color.Wheat);
-			configSplash.setTitleTextSize(30f); //float value
-			configSplash.setAnimTitleDuration(3000);
-			configSplash.setAnimTitleTechnique(Techniques.FlipInX);
-			configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
+		//Customize Title
+		configSplash.setTitleSplash("My Awesome App");
+		configSplash.setTitleTextColor(R.color.white);
+		configSplash.setTitleTextSize(30f); //float value
+		configSplash.setAnimTitleDuration(3000);
+		configSplash.setAnimTitleTechnique(Techniques.FlipInX);
+		configSplash.setTitleFont("fonts/myfont.ttf"); //provide string to your font located in assets/fonts/
 
 	}
 
 	@Override
 	public void animationsFinished() {
-
-			//transit to another activity here
-			//or do whatever you want
+		//transit to another activity here
+		//or do whatever you want
 	}
 }
 ```
