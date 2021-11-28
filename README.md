@@ -57,7 +57,10 @@ Here is how you utilize the library in your Kotlin code:
 //extends AwesomeSplash!
 class YourActivity : AwesomeSplash() {
 
-override fun initSplash(configSplash: ConfigSplash?) {
+	//DO NOT OVERRIDE onCreate()!
+	//if you need to start some services do it in initSplash()!
+
+	override fun initSplash(configSplash: ConfigSplash?) {
 
         /* you don't have to override every property */
 
