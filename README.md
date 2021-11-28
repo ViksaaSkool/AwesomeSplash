@@ -57,49 +57,48 @@ Here is how you utilize the library in your Kotlin code:
 //extends AwesomeSplash!
 class YourActivity : AwesomeSplash() {
 
-	//DO NOT OVERRIDE onCreate()!
-	//if you need to start some services do it in initSplash()!
+override fun initSplash(configSplash: ConfigSplash?) {
 
-    override fun initSplash(configSplash: ConfigSplash?) {
+        /* you don't have to override every property */
 
-	/* you don't have to override every property */
+        configSplash?.let {
+            //Customize Circular Reveal
+            it.backgroundColor = R.color.purple_500 //any color you want from colors.xml
+            it.animCircularRevealDuration = 2000 //int ms
+            it.revealFlagX = Flags.REVEAL_RIGHT  //or Flags.REVEAL_LEFT
+            it.revealFlagY = Flags.REVEAL_BOTTOM //or Flags.REVEAL_TOP
 
-        //Customize Circular Reveal
-        configSplash?.backgroundColor = R.color.purple_500 //any color you want from colors.xml
-        configSplash?.animCircularRevealDuration = 2000 //int ms
-        configSplash?.revealFlagX = Flags.REVEAL_RIGHT  //or Flags.REVEAL_LEFT
-        configSplash?.revealFlagY = Flags.REVEAL_BOTTOM //or Flags.REVEAL_TOP
+            //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
 
-	//Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
+            //Customize Logo
+            it.logoSplash = R.mipmap.ic_launcher //or any other drawable
+            it.animLogoSplashDuration = 3000 //int ms
+            it.animLogoSplashTechnique = Techniques.Bounce //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
 
-        //Customize Logo
-        configSplash?.logoSplash = R.mipmap.ic_launcher //or any other drawable
-        configSplash?.animLogoSplashDuration = 3000 //int ms
-        configSplash?.animLogoSplashTechnique = Techniques.RotateIn //choose one form Techniques (ref: https://github.com/daimajia/AndroidViewAnimations)
+            //Customize Path
+            it.pathSplash = Constants.DROID_LOGO //set path String
+            it.originalHeight = 400 //in relation to your svg (path) resource
+            it.originalWidth = 400 //in relation to your svg (path) resource
+            it.animPathStrokeDrawingDuration = 3000
+            it.pathSplashStrokeSize = 3 //I advise value be <5
+            it.pathSplashStrokeColor = R.color.teal_200 //any color you want from colors.xml
+            it.animPathFillingDuration = 3000
+            it.pathSplashFillColor = R.color.white //path object filling color
 
-        //Customize Path
-        configSplash?.pathSplash = Constants.DROID_LOGO //set path String
-        configSplash?.originalHeight = 400 //in relation to your svg (path) resource
-        configSplash?.originalWidth = 400 //in relation to your svg (path) resource
-        configSplash?.animPathStrokeDrawingDuration = 3000
-        configSplash?.pathSplashStrokeSize = 3 //I advise value be <5
-        configSplash?.pathSplashStrokeColor = R.color.teal_200 //any color you want from colors.xml
-        configSplash?.animPathFillingDuration = 3000
-        configSplash?.pathSplashFillColor = R.color.white //path object filling color
+            //Customize Title
+            it.titleSplash = "My Awesome App"
+            it.titleTextColor = R.color.white
+            it.titleTextSize = 30f //float value
+            it.animTitleDuration = 3000
+            it.animTitleTechnique = Techniques.Bounce
+            it.titleFont = "fonts/myfont.ttf" //provide string to your font located in assets/fonts/
+        }
 
-        //Customize Title
-        configSplash?.titleSplash = "My Awesome App"
-        configSplash?.titleTextColor = R.color.white
-        configSplash?.titleTextSize = 30f //float value
-        configSplash?.animTitleDuration = 3000
-        configSplash?.animTitleTechnique = Techniques.Bounce
-	configSplash?.titleFont = "fonts/myfont.ttf" //provide string to your font located in assets/fonts/
-	
     }
 
     override fun animationsFinished() {
-    	//transit to another activity here
-	//or do whatever you want
+        //transit to another activity here
+        //or do whatever you want
     }
     
 }
